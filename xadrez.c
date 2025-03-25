@@ -27,7 +27,7 @@ int main() {
 
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
-    int t = 0, b = 0;
+   /* int t = 0, b = 0;
     
     while (t < 5)
     {
@@ -42,6 +42,19 @@ int main() {
     for ( int r = 0; r < 8; r++)
     {
         printf("Esquerda\n");// Rainha 8 casas a esquerda.
+    }*/
+    int c = 0,C;
+
+    for (C = 0 ; C < 2; C++)
+    {
+        printf("Baixo\n");//Cavalo 2 casas para Baixo
+        while (c < C)
+        {
+            printf("Esquerda\n");//Cavalo 1 casa a esquerda
+            c++;
+        }
+        
+        
     }
     return 0;
 }
