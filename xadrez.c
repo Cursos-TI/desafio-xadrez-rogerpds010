@@ -4,7 +4,7 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
+//int main(){}
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
@@ -27,34 +27,53 @@ int main() {
 
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
-   /* int t = 0, b = 0;
-    
-    while (t < 5)
-    {
-        printf("Direita\n");// Torre 5 casas a direita.
-        t++;
-    }
-    do
-    {
-        printf("Cima,Direita\n");// Bispo 5 casas diagonais(cima,direita).
-        b++;
-    } while (b < 5);
-    for ( int r = 0; r < 8; r++)
-    {
-        printf("Esquerda\n");// Rainha 8 casas a esquerda.
-    }*/
-    int c = 0,C;
 
-    for (C = 0 ; C < 2; C++)
-    {
-        printf("Baixo\n");//Cavalo 2 casas para Baixo
-        while (c < C)
+
+    void movertorre (int torre){
+        if (torre > 0)
         {
-            printf("Esquerda\n");//Cavalo 1 casa a esquerda
-            c++;
+            printf("Direita\n");
+            movertorre(torre - 1);
+        }
+    }
+    
+    void moverrainha (int rainha){
+        if (rainha > 0)
+        {
+            printf("Esquerda\n");
+            moverrainha(rainha - 1);
         }
         
-        
+    }
+    void moverBispo(int movimentos) {
+        if (movimentos <= 0) return; // Caso base da recursão
+
+        printf("Esquerda");
+
+        for (int B = 0; B < 1; B++) { // Loop interno para imprimir "Cima" uma vez
+        printf(",Cima");
+        }
+
+        printf("\n"); // Quebra de linha
+
+        moverBispo(movimentos - 1); // Chamada recursiva para continuar os movimentos
+    }   
+    int main(){
+
+    movertorre(5); // Torre 5 casas a direita.   
+    moverrainha(8); // Rainha 8 casas a esquerda. 
+    int movimentos = 5; // Quantidade de movimentos desejados.
+    moverBispo(movimentos); //Bispo 5 casas diagonais(direita,cima).
+    int C, c; // Declaração das variáveis
+    //Cavalo duas casas para cima e uma para a direita.
+    for (C = 0; C < 2; C++)
+    {
+        printf("Cima\n");//Cavalo duas casas para Cima.
+    
+    for (c = 0; c < C; c++)
+    {
+        printf("Direita\n");//Cavalo uma casa a Direita.
+    }
     }
     return 0;
-}
+    }
